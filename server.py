@@ -4,6 +4,7 @@
 # Instead, edit the init() and inference() functions in app.py
 
 from sanic import Sanic, response
+from sanic.response import file
 import subprocess
 import app as user_src
 
@@ -13,6 +14,7 @@ user_src.init()
 
 # Create the http server app
 server = Sanic("my_app")
+server.static('/static', './dashboard')
 
 # Healthchecks verify that the environment is correct on Banana Serverless
 @server.route('/healthcheck', methods=["GET"])
@@ -38,5 +40,10 @@ def inference(request):
     return response.json(output)
 
 
+@server.route('/dashboard', methods=['GET'])
+async def dashboard(request):
+    return await file('dashboard/index.html')
+
+
 if __name__ == '__main__':
-    server.run(host='0.0.0.0', port="8000", workers=1)
+    server.run(host='0.0.0.0', port=8000, workers=1)

@@ -34,8 +34,22 @@ It'll then be deployed on our Serverless GPU cluster and callable with any of ou
 - [Node JS / Typescript](https://github.com/bananaml/banana-node-sdk)
 - [Go](https://github.com/bananaml/banana-go)
 
-You can monitor buildtime and runtime logs by clicking the logs button in the model view on the Banana Dashboard](https://app.banana.dev)
+You can monitor buildtime and runtime logs by clicking the logs button in the model view on the [Banana Dashboard](https://app.banana.dev).
 
 <br>
 
 ## Use Banana for scale.
+
+## Running Locally
+
+1. Install requirements:
+```bash
+pip install -r requirements.txt
+```
+2. Start the server:
+```bash
+python3 server.py
+```
+3. Open your browser at `http://localhost:8000/dashboard` to view the dashboard prototype.
+
+The root endpoint `/` accepts POST requests for audio transcription using Whisper. See `test.py` for an example.
