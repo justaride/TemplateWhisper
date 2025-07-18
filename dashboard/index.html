@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KI Planassistent Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <style>
+        #map { height: 400px; margin-bottom: 1em; }
+    </style>
+</head>
+<body>
+    <h1>KI Planassistent</h1>
+    <div id="map"></div>
+    <div id="info">
+        <p>Legg til data for reguleringsplanen. Denne dashbord prototypen viser et kart og plassholder for analyser.</p>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([59.91, 10.75], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+    </script>
+</body>
+</html>
